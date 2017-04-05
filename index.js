@@ -4,15 +4,14 @@ const _ = require('lodash');
 
 module.exports = {
 	map(json, mapping) {
-		// Copy the json argument
+		// Copy the argument
 		const jsonMapped = Object.assign({}, json);
+		const maps = Object.assign([], mapping);
 
-		this.mapping = mapping || [];
-
-		Object.keys(mapping).forEach(key => {
-			const oldKeyValue = _.get(jsonMapped, mapping[key].oldKey);
+		Object.keys(maps).forEach(key => {
+			const oldKeyValue = _.get(jsonMapped, maps[key].oldKey);
 			let newKeyValue = oldKeyValue;
-			const mappingValues = mapping[key].values;
+			const mappingValues = maps[key].values;
 
 			if (mappingValues) {
 				Object.keys(mappingValues).forEach(value => {
@@ -25,13 +24,13 @@ module.exports = {
 			}
 
 			if (newKeyValue !== undefined &&
-				mapping[key].newKey !== null &&
-				mapping[key].newKey !== undefined &&
-				mapping[key].newKey !== '') {
-				_.set(jsonMapped, mapping[key].newKey, newKeyValue);
+				maps[key].newKey !== null &&
+				maps[key].newKey !== undefined &&
+				maps[key].newKey !== '') {
+				_.set(jsonMapped, maps[key].newKey, newKeyValue);
 			}
 
-			_.unset(jsonMapped, mapping[key].oldKey);
+			_.unset(jsonMapped, maps[key].oldKey);
 		});
 
 		return jsonMapped;

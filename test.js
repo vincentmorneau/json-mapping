@@ -5,6 +5,44 @@ import _app from '.';
 
 const _ = require('lodash');
 
+test('noop', t => {
+	const mapped = _app.map();
+	const expected = {};
+
+	if (_.isEqual(mapped, expected)) {
+		t.pass();
+	} else {
+		console.error('mapped', mapped);
+		console.error('expected', expected);
+		t.fail();
+	}
+});
+
+test('nomap', t => {
+	const mapped = _app.map({
+		appURL: 'localhost',
+		object1: {
+			bool: true,
+			name: 'app'
+		}
+	});
+	const expected = {
+		appURL: 'localhost',
+		object1: {
+			bool: true,
+			name: 'app'
+		}
+	};
+
+	if (_.isEqual(mapped, expected)) {
+		t.pass();
+	} else {
+		console.error('mapped', mapped);
+		console.error('expected', expected);
+		t.fail();
+	}
+});
+
 test('simple', t => {
 	const mapped = _app.map({
 		appURL: 'localhost',
