@@ -1,0 +1,27 @@
+{
+  "name": "json-mapping",
+  "version": "1.0.0",
+  "description": "Small module to map a JSON structure to a new structure",
+  "main": "index.js",
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "keywords": [
+    "json",
+    "mapping"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vincentmorneau/json-mapping.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vincentmorneau/json-mapping/issues"
+  },
+  "devDependencies": {
+    "ava": "^0.18.2",
+    "xo": "^0.18.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
