@@ -47,26 +47,26 @@ console.log(json);
 ## Arguments
 Name | Type | Description
 --- | --- | ---
-json | object | TODO
-mapping* | array | TODO
+json | object | The initial JSON object to be mapped
+mapping* | array | An array containing the mapping options
 
 ###### \*Mapping *
 Name | Type | Description
 --- | --- | ---
-oldKey | string | TODO
-newKey | string | TODO
-values** | array | TODO
+oldKey | string | The old property name to be mapped
+newKey | string | The new property name to be mapped
+values** | array | An array of mapped values for this property mapping
 
 ###### \*\*values
 Name | Type | Description
 --- | --- | ---
-oldValue | any | TODO
-newValue | any | TODO
+oldValue | any | The old value of the property to be mapped
+newValue | any | The new value of the property to be mapped
 
 ## Methods
 Name | Type | Return | Description
 --- | --- | --- | ---
-init | function | object | TODO
+map | function | object | Maps a JSON object using mapping options
 
 ## Changelog
 [See changelog.](changelog.md)
