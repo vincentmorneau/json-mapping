@@ -21,7 +21,7 @@ let json = {
 	}
 };
 
-json = mapping.init(json, [
+json = mapping.map(json, [
 	{
 	    oldKey: "appURL",
 	    newKey: "url"
@@ -50,7 +50,7 @@ Name | Type | Description
 json | object | The initial JSON object to be mapped
 mapping* | array | An array containing the mapping options
 
-###### \*Mapping *
+###### \*mapping
 Name | Type | Description
 --- | --- | ---
 oldKey | string | The old property name to be mapped
