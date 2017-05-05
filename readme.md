@@ -31,8 +31,6 @@ json = mapping.map(json, [
 	    newKey: "object1.enabled"
 	}
 ]);
-
-console.log(json);
 /*
 {
 	"url": "localhost",
@@ -56,12 +54,21 @@ Name | Type | Description
 oldKey | string | The old property name to be mapped
 newKey | string | The new property name to be mapped
 values** | array | An array of mapped values for this property mapping
+dependsOn** | object | Determines the value for the newKey based on a condition
 
 ###### \*\*values
 Name | Type | Description
 --- | --- | ---
 oldValue | any | The old value of the property to be mapped
 newValue | any | The new value of the property to be mapped
+
+###### \*\*dependsOn
+Name | Type | Description
+--- | --- | ---
+key | string | The key to look for
+if | any | The value to evaluate for the key
+ifValue | any | When key === if, this will be the value of the newKey
+elseValue | any | When key !== if, this will be the value of the newKey
 
 ## Methods
 Name | Type | Return | Description

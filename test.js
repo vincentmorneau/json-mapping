@@ -188,3 +188,37 @@ test('remove', t => {
 		t.fail();
 	}
 });
+
+test('dependsOn', t => {
+	const mapped = _app.map({
+		appURL: 'localhost',
+		object1: {
+			bool: true,
+			name: 'app'
+		}
+	}, [{
+		newKey: 'object2',
+		dependsOn: {
+			key: 'object1.bool',
+			if: true,
+			ifValue: 'something',
+			elseValue: 'something else'
+		}
+	}]);
+	const expected = {
+		appURL: 'localhost',
+		object1: {
+			bool: true,
+			name: 'app'
+		},
+		object2: 'something'
+	};
+
+	if (_.isEqual(mapped, expected)) {
+		t.pass();
+	} else {
+		console.error('mapped', mapped);
+		console.error('expected', expected);
+		t.fail();
+	}
+});

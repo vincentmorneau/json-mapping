@@ -12,6 +12,7 @@ module.exports = {
 			const oldKeyValue = _.get(jsonMapped, maps[key].oldKey);
 			let newKeyValue = oldKeyValue;
 			const mappingValues = maps[key].values;
+			const dependsOn = maps[key].dependsOn;
 
 			if (mappingValues) {
 				Object.keys(mappingValues).forEach(value => {
@@ -21,6 +22,16 @@ module.exports = {
 						newKeyValue = undefined;
 					}
 				});
+			}
+
+			if (dependsOn) {
+				const dependsOnKey = _.get(jsonMapped, dependsOn.key);
+
+				if (dependsOnKey === dependsOn.if) {
+					_.set(jsonMapped, maps[key].newKey, dependsOn.ifValue);
+				} else {
+					_.set(jsonMapped, maps[key].newKey, dependsOn.elseValue);
+				}
 			}
 
 			if (newKeyValue !== undefined &&
