@@ -4,10 +4,12 @@ const _ = require('lodash');
 
 module.exports = {
 	map(json, mapping) {
-		// Copy the argument
+		// Copy the arguments
 		const jsonMapped = Object.assign({}, json);
 		const maps = Object.assign([], mapping);
 
+		// Loop through the mapping parameters
+		// Each iteration represent a structural change to argument "json"
 		Object.keys(maps).forEach(key => {
 			const oldKeyValue = _.get(jsonMapped, maps[key].oldKey);
 			let newKeyValue = oldKeyValue;

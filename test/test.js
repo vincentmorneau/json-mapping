@@ -1,7 +1,7 @@
 'use strict';
 
 import test from 'ava';
-import _app from '.';
+import _app from '../';
 
 const _ = require('lodash');
 
@@ -12,8 +12,10 @@ test('noop', t => {
 	if (_.isEqual(mapped, expected)) {
 		t.pass();
 	} else {
-		console.error('mapped', mapped);
-		console.error('expected', expected);
+		t.log('expected:');
+		t.log(JSON.stringify(expected, null, '\t'));
+		t.log('got:');
+		t.log(JSON.stringify(mapped, null, '\t'));
 		t.fail();
 	}
 });
@@ -37,8 +39,10 @@ test('nomap', t => {
 	if (_.isEqual(mapped, expected)) {
 		t.pass();
 	} else {
-		console.error('mapped', mapped);
-		console.error('expected', expected);
+		t.log('expected:');
+		t.log(JSON.stringify(expected, null, '\t'));
+		t.log('got:');
+		t.log(JSON.stringify(mapped, null, '\t'));
 		t.fail();
 	}
 });
@@ -65,8 +69,10 @@ test('simple', t => {
 	if (_.isEqual(mapped, expected)) {
 		t.pass();
 	} else {
-		console.error('mapped', mapped);
-		console.error('expected', expected);
+		t.log('expected:');
+		t.log(JSON.stringify(expected, null, '\t'));
+		t.log('got:');
+		t.log(JSON.stringify(mapped, null, '\t'));
 		t.fail();
 	}
 });
@@ -93,8 +99,10 @@ test('deep-simple', t => {
 	if (_.isEqual(mapped, expected)) {
 		t.pass();
 	} else {
-		console.error('mapped', mapped);
-		console.error('expected', expected);
+		t.log('expected:');
+		t.log(JSON.stringify(expected, null, '\t'));
+		t.log('got:');
+		t.log(JSON.stringify(mapped, null, '\t'));
 		t.fail();
 	}
 });
@@ -124,8 +132,10 @@ test('multiple', t => {
 	if (_.isEqual(mapped, expected)) {
 		t.pass();
 	} else {
-		console.error('mapped', mapped);
-		console.error('expected', expected);
+		t.log('expected:');
+		t.log(JSON.stringify(expected, null, '\t'));
+		t.log('got:');
+		t.log(JSON.stringify(mapped, null, '\t'));
 		t.fail();
 	}
 });
@@ -156,8 +166,10 @@ test('change-value', t => {
 	if (_.isEqual(mapped, expected)) {
 		t.pass();
 	} else {
-		console.error('mapped', mapped);
-		console.error('expected', expected);
+		t.log('expected:');
+		t.log(JSON.stringify(expected, null, '\t'));
+		t.log('got:');
+		t.log(JSON.stringify(mapped, null, '\t'));
 		t.fail();
 	}
 });
@@ -183,8 +195,10 @@ test('remove', t => {
 	if (_.isEqual(mapped, expected)) {
 		t.pass();
 	} else {
-		console.error('mapped', mapped);
-		console.error('expected', expected);
+		t.log('expected:');
+		t.log(JSON.stringify(expected, null, '\t'));
+		t.log('got:');
+		t.log(JSON.stringify(mapped, null, '\t'));
 		t.fail();
 	}
 });
@@ -217,8 +231,10 @@ test('dependsOn', t => {
 	if (_.isEqual(mapped, expected)) {
 		t.pass();
 	} else {
-		console.error('mapped', mapped);
-		console.error('expected', expected);
+		t.log('expected:');
+		t.log(JSON.stringify(expected, null, '\t'));
+		t.log('got:');
+		t.log(JSON.stringify(mapped, null, '\t'));
 		t.fail();
 	}
 });
