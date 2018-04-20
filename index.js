@@ -16,6 +16,7 @@ module.exports = {
 			const mappingValues = maps[key].values;
 			const dependsOn = maps[key].dependsOn;
 
+			// Add the new values
 			if (mappingValues) {
 				Object.keys(mappingValues).forEach(value => {
 					if (oldKeyValue === mappingValues[value].oldValue) {
@@ -26,16 +27,18 @@ module.exports = {
 				});
 			}
 
+			// Add dependencies
 			if (dependsOn) {
 				const dependsOnKey = _.get(jsonMapped, dependsOn.key);
 
-				if (dependsOnKey === dependsOn.if) {
+				if (dependsOnKey === dependsOn.if && dependsOn.ifValue) {
 					_.set(jsonMapped, maps[key].newKey, dependsOn.ifValue);
-				} else {
+				} else if (dependsOn.elseValue) {
 					_.set(jsonMapped, maps[key].newKey, dependsOn.elseValue);
 				}
 			}
 
+			// Set the new object in the new json structure
 			if (newKeyValue !== undefined &&
 				maps[key].newKey !== null &&
 				maps[key].newKey !== undefined &&
@@ -43,7 +46,10 @@ module.exports = {
 				_.set(jsonMapped, maps[key].newKey, newKeyValue);
 			}
 
-			_.unset(jsonMapped, maps[key].oldKey);
+			// Removes the old key if the name has changed
+			if (maps[key].oldKey !== maps[key].newKey) {
+				_.unset(jsonMapped, maps[key].oldKey);
+			}
 		});
 
 		return jsonMapped;
