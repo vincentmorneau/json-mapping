@@ -238,3 +238,144 @@ test('dependsOn', t => {
 		t.fail();
 	}
 });
+
+test('newVal', t => {
+	const mapped = _app.map({
+		appURL: 'localhost',
+		object1: {
+			bool: true,
+			name: 'app'
+		}
+	}, [{
+		newKey: 'object1.test',
+		dependsOn: {
+			key: 'object1.test',
+			if: undefined,
+			ifValue: true
+		}
+	}]);
+	const expected = {
+		appURL: 'localhost',
+		object1: {
+			bool: true,
+			name: 'app',
+			test: true
+		}
+	};
+
+	if (_.isEqual(mapped, expected)) {
+		t.pass();
+	} else {
+		t.log('expected:');
+		t.log(JSON.stringify(expected, null, '\t'));
+		t.log('got:');
+		t.log(JSON.stringify(mapped, null, '\t'));
+		t.fail();
+	}
+});
+
+test('newValExist', t => {
+	const mapped = _app.map({
+		appURL: 'localhost',
+		object1: {
+			bool: true,
+			name: 'app',
+			test: true
+		}
+	}, [{
+		newKey: 'object1.test',
+		dependsOn: {
+			key: 'object1.test',
+			if: undefined,
+			ifValue: true
+		}
+	}]);
+	const expected = {
+		appURL: 'localhost',
+		object1: {
+			bool: true,
+			name: 'app',
+			test: true
+		}
+	};
+
+	if (_.isEqual(mapped, expected)) {
+		t.pass();
+	} else {
+		t.log('expected:');
+		t.log(JSON.stringify(expected, null, '\t'));
+		t.log('got:');
+		t.log(JSON.stringify(mapped, null, '\t'));
+		t.fail();
+	}
+});
+
+test('newValExist2', t => {
+	const mapped = _app.map({
+		appURL: 'localhost',
+		object1: {
+			bool: true,
+			name: 'app',
+			test: false
+		}
+	}, [{
+		newKey: 'object1.test',
+		dependsOn: {
+			key: 'object1.test',
+			if: undefined,
+			ifValue: true
+		}
+	}]);
+	const expected = {
+		appURL: 'localhost',
+		object1: {
+			bool: true,
+			name: 'app',
+			test: false
+		}
+	};
+
+	if (_.isEqual(mapped, expected)) {
+		t.pass();
+	} else {
+		t.log('expected:');
+		t.log(JSON.stringify(expected, null, '\t'));
+		t.log('got:');
+		t.log(JSON.stringify(mapped, null, '\t'));
+		t.fail();
+	}
+});
+
+test('oldEqualNew', t => {
+	const mapped = _app.map({
+		appURL: 'localhost',
+		object1: {
+			bool: true,
+			name: 'app'
+		}
+	}, [{
+		oldKey: 'object1.name',
+		newKey: 'object1.name',
+		values: [{
+			oldValue: 'app',
+			newValue: 'app2'
+		}]
+	}]);
+	const expected = {
+		appURL: 'localhost',
+		object1: {
+			bool: true,
+			name: 'app2'
+		}
+	};
+
+	if (_.isEqual(mapped, expected)) {
+		t.pass();
+	} else {
+		t.log('expected:');
+		t.log(JSON.stringify(expected, null, '\t'));
+		t.log('got:');
+		t.log(JSON.stringify(mapped, null, '\t'));
+		t.fail();
+	}
+});
