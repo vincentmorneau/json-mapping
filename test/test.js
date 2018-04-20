@@ -1,7 +1,7 @@
 'use strict';
 
 import test from 'ava';
-import _app from '../';
+import _app from '..';
 
 const _ = require('lodash');
 

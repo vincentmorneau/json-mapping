@@ -1,7 +1,7 @@
 'use strict';
 
 import test from 'ava';
-import _app from '../';
+import _app from '..';
 
 // This test suite is based on a real use case
 // https://github.com/OraOpenSource/apex-nitro/
@@ -59,8 +59,7 @@ const mapping1 = [{
 },
 {
 	oldKey: 'less'
-}
-];
+}];
 
 const mapping2 = [{
 	oldKey: 'jsConcat.enabled',
@@ -122,8 +121,7 @@ const mapping2 = [{
 		ifValue: 'basic',
 		elseValue: 'advanced'
 	}
-}
-];
+}];
 
 const mapping3 = [{
 	oldKey: 'jsConcat.enabled',
@@ -197,8 +195,7 @@ const mapping3 = [{
 {
 	oldKey: 'publish.apexDestination',
 	newKey: 'publish.destination'
-}
-];
+}];
 
 const mapping4 = [{
 	oldKey: 'jsConcat.enabled',
@@ -278,8 +275,7 @@ const mapping4 = [{
 	values: [{
 		newValue: true
 	}]
-}
-];
+}];
 
 const obj1 = {
 	appURL: 'http://localhost:32513/ords/f?p=430:1',
