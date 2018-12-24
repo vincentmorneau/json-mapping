@@ -19,10 +19,10 @@
     "url": "https://github.com/vincentmorneau/json-mapping/issues"
   },
   "devDependencies": {
-    "ava": "^0.25.0",
-    "xo": "^0.20.3"
+    "ava": "^1.0.1",
+    "xo": "^0.23.0"
   },
   "dependencies": {
-    "lodash": "^4.17.5"
+    "lodash": "^4.17.11"
   }
 }

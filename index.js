@@ -13,14 +13,14 @@ module.exports = {
 		Object.keys(maps).forEach(key => {
 			const oldKeyValue = _.get(jsonMapped, maps[key].oldKey);
 			let newKeyValue = oldKeyValue;
-			const mappingValues = maps[key].values;
-			const dependsOn = maps[key].dependsOn;
+			const {values} = maps[key];
+			const {dependsOn} = maps[key];
 
 			// Add the new values
-			if (mappingValues) {
-				Object.keys(mappingValues).forEach(value => {
-					if (oldKeyValue === mappingValues[value].oldValue) {
-						newKeyValue = mappingValues[value].newValue;
+			if (values) {
+				Object.keys(values).forEach(value => {
+					if (oldKeyValue === values[value].oldValue) {
+						newKeyValue = values[value].newValue;
 					} else {
 						newKeyValue = undefined;
 					}
