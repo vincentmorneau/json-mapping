@@ -3,13 +3,13 @@
 import test from 'ava';
 import _app from '..';
 
-const _ = require('lodash');
+const isEqual = require('lodash.isequal');
 
 test('noop', t => {
 	const mapped = _app.map();
 	const expected = {};
 
-	if (_.isEqual(mapped, expected)) {
+	if (isEqual(mapped, expected)) {
 		t.pass();
 	} else {
 		t.log('expected:');
@@ -36,7 +36,7 @@ test('nomap', t => {
 		}
 	};
 
-	if (_.isEqual(mapped, expected)) {
+	if (isEqual(mapped, expected)) {
 		t.pass();
 	} else {
 		t.log('expected:');
@@ -66,7 +66,7 @@ test('simple', t => {
 		}
 	};
 
-	if (_.isEqual(mapped, expected)) {
+	if (isEqual(mapped, expected)) {
 		t.pass();
 	} else {
 		t.log('expected:');
@@ -96,7 +96,7 @@ test('deep-simple', t => {
 		}
 	};
 
-	if (_.isEqual(mapped, expected)) {
+	if (isEqual(mapped, expected)) {
 		t.pass();
 	} else {
 		t.log('expected:');
@@ -129,7 +129,7 @@ test('multiple', t => {
 		}
 	};
 
-	if (_.isEqual(mapped, expected)) {
+	if (isEqual(mapped, expected)) {
 		t.pass();
 	} else {
 		t.log('expected:');
@@ -163,7 +163,7 @@ test('change-value', t => {
 		}
 	};
 
-	if (_.isEqual(mapped, expected)) {
+	if (isEqual(mapped, expected)) {
 		t.pass();
 	} else {
 		t.log('expected:');
@@ -192,7 +192,7 @@ test('remove', t => {
 		}
 	};
 
-	if (_.isEqual(mapped, expected)) {
+	if (isEqual(mapped, expected)) {
 		t.pass();
 	} else {
 		t.log('expected:');
@@ -228,7 +228,7 @@ test('dependsOn', t => {
 		object2: 'something'
 	};
 
-	if (_.isEqual(mapped, expected)) {
+	if (isEqual(mapped, expected)) {
 		t.pass();
 	} else {
 		t.log('expected:');
@@ -263,7 +263,7 @@ test('newVal', t => {
 		}
 	};
 
-	if (_.isEqual(mapped, expected)) {
+	if (isEqual(mapped, expected)) {
 		t.pass();
 	} else {
 		t.log('expected:');
@@ -299,7 +299,7 @@ test('newValExist', t => {
 		}
 	};
 
-	if (_.isEqual(mapped, expected)) {
+	if (isEqual(mapped, expected)) {
 		t.pass();
 	} else {
 		t.log('expected:');
@@ -335,7 +335,7 @@ test('newValExist2', t => {
 		}
 	};
 
-	if (_.isEqual(mapped, expected)) {
+	if (isEqual(mapped, expected)) {
 		t.pass();
 	} else {
 		t.log('expected:');
@@ -369,7 +369,7 @@ test('oldEqualNew', t => {
 		}
 	};
 
-	if (_.isEqual(mapped, expected)) {
+	if (isEqual(mapped, expected)) {
 		t.pass();
 	} else {
 		t.log('expected:');

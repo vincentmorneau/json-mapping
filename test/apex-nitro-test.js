@@ -6,7 +6,7 @@ import _app from '..';
 // This test suite is based on a real use case
 // https://github.com/OraOpenSource/apex-nitro/
 
-const _ = require('lodash');
+const isEqual = require('lodash.isequal');
 
 const mapping1 = [{
 	oldKey: 'jsConcat.enabled',
@@ -444,7 +444,7 @@ test('apex-nitro-1.1', t => {
 	const expected = JSON.parse(JSON.stringify(obj2));
 	const mapped = _app.map(obj, mapping);
 
-	if (_.isEqual(mapped, expected)) {
+	if (isEqual(mapped, expected)) {
 		t.pass();
 	} else {
 		t.log('expected:');
@@ -461,7 +461,7 @@ test('apex-nitro-1.2', t => {
 	const expected = JSON.parse(JSON.stringify(obj3));
 	const mapped = _app.map(obj, mapping);
 
-	if (_.isEqual(mapped, expected)) {
+	if (isEqual(mapped, expected)) {
 		t.pass();
 	} else {
 		t.log('expected:');
@@ -478,7 +478,7 @@ test('apex-nitro-1.3', t => {
 	const expected = JSON.parse(JSON.stringify(obj4));
 	const mapped = _app.map(obj, mapping);
 
-	if (_.isEqual(mapped, expected)) {
+	if (isEqual(mapped, expected)) {
 		t.pass();
 	} else {
 		t.log('expected:');
@@ -495,7 +495,7 @@ test('apex-nitro-1.4', t => {
 	const expected = JSON.parse(JSON.stringify(obj5));
 	const mapped = _app.map(obj, mapping);
 
-	if (_.isEqual(mapped, expected)) {
+	if (isEqual(mapped, expected)) {
 		t.pass();
 	} else {
 		t.log('expected:');
@@ -512,7 +512,7 @@ test('apex-nitro-2.1', t => {
 	const expected = JSON.parse(JSON.stringify(obj3));
 	const mapped = _app.map(obj, mapping);
 
-	if (_.isEqual(mapped, expected)) {
+	if (isEqual(mapped, expected)) {
 		t.pass();
 	} else {
 		t.log('expected:');
@@ -529,7 +529,7 @@ test('apex-nitro-2.2', t => {
 	const expected = JSON.parse(JSON.stringify(obj4));
 	const mapped = _app.map(obj, mapping);
 
-	if (_.isEqual(mapped, expected)) {
+	if (isEqual(mapped, expected)) {
 		t.pass();
 	} else {
 		t.log('expected:');
@@ -546,7 +546,7 @@ test('apex-nitro-2.3', t => {
 	const expected = JSON.parse(JSON.stringify(obj5));
 	const mapped = _app.map(obj, mapping);
 
-	if (_.isEqual(mapped, expected)) {
+	if (isEqual(mapped, expected)) {
 		t.pass();
 	} else {
 		t.log('expected:');
@@ -563,7 +563,7 @@ test('apex-nitro-3.1', t => {
 	const expected = JSON.parse(JSON.stringify(obj4));
 	const mapped = _app.map(obj, mapping);
 
-	if (_.isEqual(mapped, expected)) {
+	if (isEqual(mapped, expected)) {
 		t.pass();
 	} else {
 		t.log('expected:');
@@ -580,7 +580,7 @@ test('apex-nitro-3.2', t => {
 	const expected = JSON.parse(JSON.stringify(obj5));
 	const mapped = _app.map(obj, mapping);
 
-	if (_.isEqual(mapped, expected)) {
+	if (isEqual(mapped, expected)) {
 		t.pass();
 	} else {
 		t.log('expected:');
@@ -597,7 +597,7 @@ test('apex-nitro-4.1', t => {
 	const expected = JSON.parse(JSON.stringify(obj5));
 	const mapped = _app.map(obj, mapping);
 
-	if (_.isEqual(mapped, expected)) {
+	if (isEqual(mapped, expected)) {
 		t.pass();
 	} else {
 		t.log('expected:');

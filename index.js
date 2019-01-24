@@ -1,6 +1,8 @@
 'use strict';
 
-const _ = require('lodash');
+const get = require('lodash.get');
+const set = require('lodash.set');
+const unset = require('lodash.unset');
 
 module.exports = {
 	map(json, mapping) {
@@ -11,7 +13,7 @@ module.exports = {
 		// Loop through the mapping parameters
 		// Each iteration represent a structural change to argument "json"
 		Object.keys(maps).forEach(key => {
-			const oldKeyValue = _.get(jsonMapped, maps[key].oldKey);
+			const oldKeyValue = get(jsonMapped, maps[key].oldKey);
 			let newKeyValue = oldKeyValue;
 			const {values} = maps[key];
 			const {dependsOn} = maps[key];
@@ -29,12 +31,12 @@ module.exports = {
 
 			// Add dependencies
 			if (dependsOn) {
-				const dependsOnKey = _.get(jsonMapped, dependsOn.key);
+				const dependsOnKey = get(jsonMapped, dependsOn.key);
 
 				if (dependsOnKey === dependsOn.if && dependsOn.ifValue) {
-					_.set(jsonMapped, maps[key].newKey, dependsOn.ifValue);
+					set(jsonMapped, maps[key].newKey, dependsOn.ifValue);
 				} else if (dependsOn.elseValue) {
-					_.set(jsonMapped, maps[key].newKey, dependsOn.elseValue);
+					set(jsonMapped, maps[key].newKey, dependsOn.elseValue);
 				}
 			}
 
@@ -43,12 +45,12 @@ module.exports = {
 				maps[key].newKey !== null &&
 				maps[key].newKey !== undefined &&
 				maps[key].newKey !== '') {
-				_.set(jsonMapped, maps[key].newKey, newKeyValue);
+				set(jsonMapped, maps[key].newKey, newKeyValue);
 			}
 
 			// Removes the old key if the name has changed
 			if (maps[key].oldKey !== maps[key].newKey) {
-				_.unset(jsonMapped, maps[key].oldKey);
+				unset(jsonMapped, maps[key].oldKey);
 			}
 		});
 
