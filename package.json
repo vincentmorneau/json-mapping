@@ -20,9 +20,12 @@
   },
   "devDependencies": {
     "ava": "^1.0.1",
+    "lodash.isequal": "^4.5.0",
     "xo": "^0.23.0"
   },
   "dependencies": {
-    "lodash": "^4.17.11"
+    "lodash.get": "^4.4.2",
+    "lodash.set": "^4.3.2",
+    "lodash.unset": "^4.5.2"
   }
 }
