@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.4
+
+- Travis build fix
+
 ## 1.1.3
 
 - Dependency performance & size
