@@ -20,9 +20,9 @@ module.exports = {
 
 			// Add the new values
 			if (values) {
-				for (let value = 0; value < values.length; value++) {
-					if (oldKeyValue === values[value].oldValue) {
-						newKeyValue = values[value].newValue;
+				for (const value_ of values) {
+					if (oldKeyValue === value_.oldValue) {
+						newKeyValue = value_.newValue;
 						break;
 					} else {
 						newKeyValue = undefined;
