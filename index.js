@@ -20,13 +20,14 @@ module.exports = {
 
 			// Add the new values
 			if (values) {
-				Object.keys(values).forEach(value => {
+				for (let value = 0; value < values.length; value++) {
 					if (oldKeyValue === values[value].oldValue) {
 						newKeyValue = values[value].newValue;
+						break;
 					} else {
 						newKeyValue = undefined;
 					}
-				});
+				}
 			}
 
 			// Add dependencies
